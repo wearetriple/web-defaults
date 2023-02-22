@@ -11,7 +11,7 @@ Two keywords that are important in a data layer:
 - __State__: A snapshot of the store in a point of time representing the current state of the store.
 
 ## Store
-
+(...write short description)
 
 ## State
 Within an application, wether it be build with React (Native) or Svelte, there are different types of state. So there is not a single centralized store where all your data lives:
