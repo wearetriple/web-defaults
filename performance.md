@@ -28,12 +28,17 @@ Smart implementations of data fetching can improve your applications performance
 
 - Avoid fetching the same data multiple times. Store data that is used on every page rather than fetching the samen data every page render.
 - Fetch extra data separate from the initial page load. The page is already shown to the user, giving the user a faster experience. Extra data that is fetched can be indicated by showing loading indicators
-- Stale while revalidating. @TODO: more info
+- Stale while revalidating. @TODO: add more info
+- When fetching large amounts of data, try to implement pagination to limit the data that is processed at once.
+
+## Animations
+- 60 fps. Make sure your animations run at 60fps.
+- CSS > Javascript. When using animations it is adviced to use css animations over js animations. The performance for css animation is better in most cases.
 
 ## React specific
 
 - useMemo. A React Hook that lets you cache the result of a calculation between re-renders.
-- useCallback. A React Hook that lets you cache a function definition between re-renders.
+- DevTools Profiler. This is a great tool to find out why re-renders are happening and for finding bottlenecks.
 
 ## Vite specific
 
@@ -44,4 +49,4 @@ Smart implementations of data fetching can improve your applications performance
 - https://medium.com/trendyol-tech/vite-webpack-killer-or-something-else-87019b4aeca2
 - https://www.syncfusion.com/blogs/post/lazy-loading-with-react-an-overview.aspx
 - https://react.dev/reference/react/useMemo
-- https://react.dev/reference/react/useCallback
+- https://react.dev/learn/react-developer-tools
