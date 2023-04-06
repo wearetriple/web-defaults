@@ -28,7 +28,7 @@ Smart implementations of data fetching can improve your applications performance
 
 - Avoid fetching the same data multiple times. Store data that is used on every page rather than fetching the samen data every page render.
 - Fetch extra data separate from the initial page load. The page is already shown to the user, giving the user a faster experience. Extra data that is fetched can be indicated by showing loading indicators
-- Stale while revalidating. @TODO: add more info
+- Stale while revalidating. @TODO: https://jira.wearetriple.com/browse/TRIWTR-22
 - When fetching large amounts of data, try to implement pagination to limit the data that is processed at once.
 
 ## Animations
@@ -40,9 +40,9 @@ Smart implementations of data fetching can improve your applications performance
 - useMemo. A React Hook that lets you cache the result of a calculation between re-renders.
 - DevTools Profiler. This is a great tool to find out why re-renders are happening and for finding bottlenecks.
 
-## Vite specific
+## Svelte specific
 
-@TODO
+@TODO: https://jira.wearetriple.com/browse/TRIWTR-23
 
 #### Sources
 
