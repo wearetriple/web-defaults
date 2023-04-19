@@ -271,8 +271,20 @@ This folder structure separates parts of your application based on their type ra
 .
 └── src/
     ├── core/
-    │   ├── services/
+    │   ├── dtos.ts
+    │   ├── helpers/
     │   │   └── api.ts
+    │   ├── entities
+    │   │   └── user
+    │   │   │   ├── user.ts
+    │   │   │   ├── userTransformer.ts
+    │   │   │   └── userService.ts
+    │   │   │
+    │   │   └── blogPost
+    │   │       ├── blogPost.ts
+    │   │       ├── blogPostTransformer.ts
+    │   │       └── blogPostService.ts
+    │   │ 
     │   ├── store/
     │   │   └── store.ts
     │   └── transformers/
