@@ -2,20 +2,28 @@
 
 ### TS / JS
 
-- **No** abbreviations
-- **No** single letter vars
-- Identifiers (variables, functions, methods): **camelCase**
 - Identifiers should be self explanatory and describe value
-- Booleans: is or has prefix
-- Functions: nouns and verbs prefixes (Flexible)
+- Identifiers (variables, functions, methods): **camelCase**
+- Booleans: `is` or `has` prefix (For ReactJS Projects)
+- Functions: nouns and verbs prefixes (Flexible) i.e. `loadArticles()`
 - Global constants: **UPPER_SNAKE_CASE**
 - Classes: **PascalCase**
+- Types and interfaces: **PascalCase**
 - Components: **PascalCase**
 - Filenames: **kebab-case**
 - Private functions: **prefix with \_**
-- CSS Selectors **kabab**
+- **No** abbreviations, unless they are widely understood.
+  - If an abrreviation is used, use the normal casing i.e. `ArticleDto`
+- **No** single letter vars (only for loops and events, i.e. `e`, `i`)
 
 ### (S)CSS
 
 - No nesting preferred
 - Selectors using **kebab-case**
+- Use Stylelint
+
+### Best practices
+
+- Use meaningful and descriptive names for variables, functions, types and classes.
+- Use consistent naming throughout your code
+- If the name of an interface or type is aleady used for something else, append `Entity` to it.
