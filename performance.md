@@ -32,12 +32,12 @@ Smart implementations of data fetching can improve your applications performance
 - When fetching large amounts of data, try to implement pagination to limit the data that is processed at once.
 
 ## Animations
-- 60 fps. Make sure your animations run at 60fps.
+- Try to get the max frame rate when creating animations. 60fps should be the bottomline. Some screens have higher framerate, try to get the max out of it.
 - CSS > Javascript. When using animations it is adviced to use css animations over js animations. The performance for css animation is better in most cases.
 
 ## React specific
 
-- useMemo. A React Hook that lets you cache the result of a calculation between re-renders.
+- useMemo. A React Hook that lets you cache the result of a <b>expensive</b> calculation between re-renders.
 - DevTools Profiler. This is a great tool to find out why re-renders are happening and for finding bottlenecks.
 
 ## Svelte specific
