@@ -1,4 +1,5 @@
 # 🗄️ Project structure
+```
 .
 ├── src/
 │   ├── assets/
@@ -40,3 +41,4 @@
 │       └── object.ts
 ├── App.tsx
 └── index.ts
+```
