@@ -3,9 +3,9 @@
 ```
 .
 ├── src/
-│   ├── assets/
+│   ├── assets/                           # assets folder can contain all the static files such as images, fonts, etc.
 │   │   └── images
-│   ├── components/
+│   ├── components/                       # shared components used across the entire application
 │   │   ├── Button/
 │   │   │   ├── Button.tsx
 │   │   │   └── Button.module.scss
@@ -13,30 +13,30 @@
 │   │       ├── assets
 │   │       ├── Icon.tsx
 │   │       └── Icon.module.scss
-│   ├── config
+│   ├── config                            # all the global configuration, env variables etc. get exported from here and used in the app
 │   ├── connectors/
 │   │   └── Posts/
 │   │       ├── Posts.connector.tsx
 │   │       └── Posts.utils.tsx
-│   ├── hooks/
+│   ├── hooks/                            # shared hooks used across the entire application
 │   │   └── useUser.ts
-│   ├── routes/
+│   ├── routes/                           # routes configuration
 │   │   ├── routes.tsx
-│   │   └── loaders/
+│   │   └── loaders/                      # route loaders for (pre)loading data based on route navigation
 │   │       └── postsLoader.ts
-│   ├── services/
+│   ├── services/                         # services needed for communication with APIs
 │   │   ├── api.ts
 │   │   └── apiDtos.ts
-│   ├── store/
+│   ├── store/                            # global app state stores
 │   │   └── user/
 │   │       ├── userReducer.ts
 │   │       └── userActions.ts
-│   ├── styles/
+│   ├── styles/                           # global app styling / initial theming setup / mixins
 │   │   ├── global.scss
 │   │   ├── variables
 │   │   ├── mixins
 │   │   └── typography
-│   └── utils/
+│   └── utils/                            # shared utility functions
 │       ├── date.ts
 │       ├── array.ts
 │       └── object.ts
