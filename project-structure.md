@@ -13,7 +13,7 @@
 │   │       ├── assets
 │   │       ├── Icon.tsx
 │   │       └── Icon.module.scss
-│   ├── config                            # all the global configuration, env variables etc. get exported from here and used in the app
+│   ├── config                            # all the global configuration that can't exist in the .env in the root
 │   ├── connectors/
 │   │   └── Posts/
 │   │       ├── Posts.connector.tsx
@@ -36,7 +36,8 @@
 │   │   ├── variables
 │   │   ├── mixins
 │   │   └── typography
-│   └── utils/                            # shared utility functions
+│   ├── types/                            # global app types used across the entire application
+│   └── utils/                            # shared utility functions used across the entire application
 │       ├── date.ts
 │       ├── array.ts
 │       └── object.ts
