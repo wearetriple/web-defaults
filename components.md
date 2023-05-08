@@ -16,7 +16,7 @@ If a prop is an object, especially if that object is coming from an api call, th
 
 ## Why limit a component to be dumb?
 
-Making dump components has many benefits:
+Making dumb components has many benefits:
 
 - Easy to reason about: As a developer you only need to think about this single component (and the nested dumb components)
 - Easy to test/preview: You can write a test that renders the component without having to configure any context or mock any api calls.
@@ -133,4 +133,4 @@ export let discount: number | undefined;
 
 ## Conclusion
 
-Dumb components, data in, event out. They are easier to write, read, test and maintain and are something to strife for. But don't feel bad for writing smart components, they do the work and are essential too.
+Dumb components, data in, events out. They are easier to write, read, test and maintain and are something to strife for. But don't feel bad for writing smart components, they do the work and are essential too.
