@@ -1,10 +1,17 @@
 # 🤖 Linting
 
+## Linting JS
+
+Linting is the best way to keep your code clean and consistent. Within Triple we have a default setup for ESLint combined with Prettier. This will make sure that your code is consistent and that you don't have to worry about formatting your code.
+
+The config and and instructions can be found here:
+https://www.npmjs.com/package/eslint-config-triple
+
 ## Linting CSS
 
 ### Introduction
 
-Linting is possible with a library called Stylelint. By itself it doesn't lint sass files but this can be included with an extra parser and telling your editor to use stylelint. Also it is recommended to add this to your package.json tasks for CI.
+Linting CSS is possible with a library called Stylelint. By itself it doesn't lint sass files but this can be included with an extra parser and telling your editor to use stylelint. Also it is recommended to add this to your package.json tasks for CI.
 
 ### Installation
 
@@ -74,7 +81,7 @@ Linting is possible with a library called Stylelint. By itself it doesn't lint s
 
 5.  _(optional for vscode users)_ add the extension [Stylelint][stylelint] to Visual Studio Code.
 
-### usage
+### Usage
 
 With all this set, you should have everything lintable. You can check if there are errors with `npm run lint` or even apply an autofix with `npm run lint:fix`. This will still throw an error if there are errors that aren't able to be autofixed.
 
