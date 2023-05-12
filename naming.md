@@ -11,6 +11,7 @@
 - Types and interfaces: **PascalCase**
 - Components: **PascalCase**
 - Filenames: **kebab-case**
+  - Except for when there is a default export, then use default export's name and casing)
 - Private functions: **prefix with \_**
 - **No** abbreviations, unless they are widely understood.
   - If an abrreviation is used, use the normal casing i.e. `ArticleDto`
