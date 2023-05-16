@@ -36,13 +36,12 @@ Smart implementations of data fetching can improve your applications performance
 - CSS > Javascript. When using animations it is adviced to use css animations over js animations. The performance for css animation is better in most cases.
 
 ## React specific
-
 - useMemo. A React Hook that lets you cache the result of a <b>expensive</b> calculation between re-renders.
 - DevTools Profiler. This is a great tool to find out why re-renders are happening and for finding bottlenecks.
+- Careful with spreading props
 
 ## Svelte specific
-
-@TODO: https://jira.wearetriple.com/browse/TRIWTR-23
+At this point there are no specific performance best practices for Svelte.
 
 #### Sources
 
