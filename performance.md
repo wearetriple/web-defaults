@@ -38,10 +38,10 @@ Smart implementations of data fetching can improve your applications performance
 ## React specific
 - useMemo. A React Hook that lets you cache the result of a <b>expensive</b> calculation between re-renders.
 - DevTools Profiler. This is a great tool to find out why re-renders are happening and for finding bottlenecks.
-- Careful with spreading props
 
 ## Svelte specific
-At this point there are no specific performance best practices for Svelte.
+- Spreading props can decrease performance because Svelte is reactive per prop.
+- React will warn you about not using keys in maps, Svelte will not do this in an #each. Make sure you always add keys in your #each loops.
 
 #### Sources
 
