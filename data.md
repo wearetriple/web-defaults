@@ -124,7 +124,7 @@ To make it easier refer to this overview to see the scope for each element:
 | Component | ⛔️          | ⛔️           | ⛔️                | ✅               | ⛔️          |
 
 
-### ![#orange](https://placehold.co/15x15/orange/orange.png)State management
+### ![#orange](https://placehold.co/15x15/orange/orange.png) State management
 
 | Element              | Description                                                                           |
 |-------------------|---------------------------------------------------------------------------------------|
@@ -133,7 +133,7 @@ To make it easier refer to this overview to see the scope for each element:
 | Application State | Handled by your solution of choice: React Context, Svelte stores, Redux Toolkit, etc. |
 
 
-### ![#yellow](https://placehold.co/15x15/yellow/yellow.png)Transform/formatting data
+### ![#yellow](https://placehold.co/15x15/yellow/yellow.png) Transform/formatting data
 
 | Element    | Description                                                                                                                                                           |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
