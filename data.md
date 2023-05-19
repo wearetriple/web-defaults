@@ -20,7 +20,7 @@ Two keywords that are important in a data layer:
 - [From state to component](#from-state-to-component)
   - [Connecting or displaying data](#connecting-or-displaying-data)
   - [State management](#state-management)
-  - [Transform/formatting data](#transform-formatting-data)
+  - [Transform/formatting data](#transformformatting-data)
   - [Examples](#examples)
   - [When to use a connector](#when-to-use-a-connector)
   - [When to use a transformer](#when-to-use-a-transformer)
@@ -105,27 +105,7 @@ flowchart TD
 
 > Looking for how to structure this flow in your application, see [project structure](project-structure.md) documentation.
 
-<style>
-  .marker {
-    border-width:1px;
-    border-style:solid;
-    display:inline-block;
-    width:10px;
-    height:10px;
-    margin-right: 10px;
-  }
-  .lime {
-     border-color:lime;
-  }
-  .yellow {
-     border-color:yellow;
-  }
-  .orange {
-     border-color:orange;
-  }
-</style>
-
-<h3><span class="marker lime"></span>Connecting or displaying data</h3>
+### Connecting or displaying data
 
 | Element      | Description                                                                                                                                          |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -144,7 +124,7 @@ To make it easier refer to this overview to see the scope for each element:
 | Component | ⛔️          | ⛔️           | ⛔️                | ✅               | ⛔️          |
 
 
-<h3><span class="marker orange"></span>State management</h3>
+### State management
 
 | Element              | Description                                                                           |
 |-------------------|---------------------------------------------------------------------------------------|
@@ -153,7 +133,7 @@ To make it easier refer to this overview to see the scope for each element:
 | Application State | Handled by your solution of choice: React Context, Svelte stores, Redux Toolkit, etc. |
 
 
-<h3><span class="marker yellow"></span>Transform/formatting data</h3>
+### Transform/formatting data
 
 | Element    | Description                                                                                                                                                           |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
