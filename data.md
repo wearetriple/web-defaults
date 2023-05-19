@@ -11,8 +11,8 @@ Two keywords that are important in a data layer:
 - __State__: A snapshot of the store in a point of time representing the current state of the store.
 
 ## Index
-- [🤔 What is a store?](#what-is-a-store)
-- [🤔 What is a state?](#what-is-a-state)
+- [What is a store?](#what-is-a-store)
+- [What is a state?](#what-is-a-state)
   - [Component state](#component-state)
   - [Application state](#application-state)
   - [Server (cache) state](#server-cache-state)
@@ -21,21 +21,20 @@ Two keywords that are important in a data layer:
   - [Connecting or displaying data](#connecting-or-displaying-data)
   - [State management](#state-management)
   - [Transform/formatting data](#transformformatting-data)
-  - [Examples](#examples)
-  - [When to use a connector](#when-to-use-a-connector)
-  - [When to use a transformer](#when-to-use-a-transformer)
+  - [When to use a connector?](#when-to-use-a-connector)
+  - [When to use a transformer?](#when-to-use-a-transformer)
 
 ## Useful links
 - [💬 Response Typing](response-typing.md)
 - [🗄️ Project structure](project-structure.md)
 - [🧱 Components](components.md)
 
-## 🤔 What is a store?
+## What is a store?
 In state management terms, a store is an object that holds the state of an application. It is a centralized place where you can store, update, and retrieve data that is used throughout your application.
 
 In a typical state management system, the store is responsible for maintaining the application state, which consists of all the data and values that your application needs to function. This includes things like user data, application settings, and other important data.
 
-## 🤔 What is a state?
+## What is a state?
 Within an application, wether it be build with React (Native) or Svelte, there are different types of state. So there is not a single centralized store where all your data lives:
 <a id='component-state'></a>
 
@@ -259,7 +258,7 @@ const TodoItem = ({ title, checked, onToggle, time, assignedTo, assignedProfileP
 
 > More examples can be added/suggested by developers.
 
-### When to use a connector
+### When to use a connector?
 It is not obligatory to use a connector in your application but it can be helpful for example:
 1. <b>Combining multiple states</b>: You need to combine server and application state into component props. For example you have a collection of books, but the selection state is only locally available.
 
@@ -267,7 +266,7 @@ It is not obligatory to use a connector in your application but it can be helpfu
 
 3. <b>Direct coupling</b>: Have your data close to the component. Within React you will benefit from this: prevent unnecessary rerenders of components that do not use a specific slice of server/application state.
 
-### When to use a transformer
+### When to use a transformer?
 Transformers can be used to transform API data in your application if the data received from the API is in a raw or unstructured format, and needs to be processed and transformed into a format that can be easily consumed by your application, for example:
 
 1. <b>Data Cleaning</b>: If the data received from the API is in a messy or unstructured format.
