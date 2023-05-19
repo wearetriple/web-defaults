@@ -105,7 +105,7 @@ flowchart TD
 
 > Looking for how to structure this flow in your application, see [project structure](project-structure.md) documentation.
 
-### ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) Connecting or displaying data
+### ![#lime](https://placehold.co/15x15/lime/lime.png) Connecting or displaying data
 
 | Element      | Description                                                                                                                                          |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,7 +124,7 @@ To make it easier refer to this overview to see the scope for each element:
 | Component | ⛔️          | ⛔️           | ⛔️                | ✅               | ⛔️          |
 
 
-### State management
+### ![#orange](https://placehold.co/15x15/orange/orange.png)State management
 
 | Element              | Description                                                                           |
 |-------------------|---------------------------------------------------------------------------------------|
@@ -133,7 +133,7 @@ To make it easier refer to this overview to see the scope for each element:
 | Application State | Handled by your solution of choice: React Context, Svelte stores, Redux Toolkit, etc. |
 
 
-### Transform/formatting data
+### ![#yellow](https://placehold.co/15x15/yellow/yellow.png)Transform/formatting data
 
 | Element    | Description                                                                                                                                                           |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
