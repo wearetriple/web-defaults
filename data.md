@@ -105,7 +105,7 @@ flowchart TD
 
 > Looking for how to structure this flow in your application, see [project structure](project-structure.md) documentation.
 
-### Connecting or displaying data
+### ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) Connecting or displaying data
 
 | Element      | Description                                                                                                                                          |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
