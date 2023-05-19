@@ -145,6 +145,7 @@ To make it easier refer to this overview to see the scope for each element:
 <details>
 <summary>React with React Router DOM v6</summary>
 
+First start with the entry point of your app: the Route State. Use the loader to fetch the server state and connect it to the route:
 ```ts
 // Element: Loader
 export function todoLoader({ params }: TodoRoute) {
@@ -153,6 +154,7 @@ export function todoLoader({ params }: TodoRoute) {
   return api.get(`/api/todos/${params.id}`);
 }
 ```
+Now setup your router to use the loader, the navigation path, and layout:
 ```tsx
 // State manager: Route
 const router = createBrowserRouter([
@@ -169,6 +171,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(el).render(<RouterProvider router={router} />);
 ```
+Within the layout the components are structured into a page/screen:
 ```tsx
 // Element: Layout
 const TodoLayout = () => {
@@ -194,6 +197,7 @@ const TodoLayout = () => {
   );
 };
 ```
+The connector is setup to connect extra data to your TodoItem component and format the timestamp in a readable format:
 ```tsx
 // Element: Connector
 const TodoItemConnector = ({ children }) => {
@@ -225,6 +229,7 @@ const TodoItemConnector = ({ children }) => {
   );
 };
 ```
+Finally a TodoItem component is created for simply displaying the data it gets from its props:
 ```tsx
 // Element: Component
 const TodoItem = ({ title, checked, onToggle, time, assignedTo, assignedProfilePic }) => {
