@@ -11,11 +11,11 @@ Two keywords that are important in a data layer:
 - __State__: A snapshot of the store in a point of time representing the current state of the store.
 
 ## Index
-- [What is a store?](#what-is-a-store)
-- [What is a state?](#what-is-a-state)
+- [🤔 What is a store?](#what-is-a-store)
+- [🤔 What is a state?](#what-is-a-state)
   - [Component state](#component-state)
   - [Application state](#application-state)
-  - [Server Cache state](#server-cache-state)
+  - [Server (cache) state](#server-cache-state)
   - [Route state](#route-state)
 - [From state to component](#from-state-to-component)
   - [Connecting or displaying data](#connecting-or-displaying-data)
@@ -30,34 +30,46 @@ Two keywords that are important in a data layer:
 - [🗄️ Project structure](project-structure.md)
 - [🧱 Components](components.md)
 
-## What is a store?
+## 🤔 What is a store?
 In state management terms, a store is an object that holds the state of an application. It is a centralized place where you can store, update, and retrieve data that is used throughout your application.
 
 In a typical state management system, the store is responsible for maintaining the application state, which consists of all the data and values that your application needs to function. This includes things like user data, application settings, and other important data.
 
-## What is a state?
+## 🤔 What is a state?
 Within an application, wether it be build with React (Native) or Svelte, there are different types of state. So there is not a single centralized store where all your data lives:
+<a id='component-state'></a>
 
-### Component state
-A component is a self-contained, reusable piece of code that can be used to create a UI element, such as a button, form, or menu. The state of a component represents the values that are specific to that component, which can change over time and affect how the component is rendered.
+- __Component state__: A component is a self-contained, reusable piece of code that can be used to create a UI element, such as a button, form, or menu. The state of a component represents the values that are specific to that component, which can change over time and affect how the component is rendered.
 
-### Application state
-If you want to keep state on a more global level that doesn't live server side you want to consider Application state. State that can represent stuff like: theming, settings, notifications, open modals, etc.
+<a id='application-state'></a>
 
-You need to consider if your state needs to live on app level or can be nested deeper down your app tree. Sometimes a state only is relevant to specific subset of pages. In that case define it on a lower level to prevent dropping performance for the whole app.
+- __Application state__: If you want to keep state on a more global level that doesn't live server side you want to consider Application state. State that can represent stuff like:
+  - Theming
+  - Settings
+  - Notifications
+  - Open modals
+  - etc.
+  
+  You need to consider if your state needs to live on app level or can be nested deeper down your app tree. Sometimes a state only is relevant to specific subset of pages. In that case define it on a lower level to prevent dropping performance for the whole app.
 
-### Server Cache state
-When fetching data from an external API we can store that data in a client side cache. This has several benefits:
-- Reduce amount of API calls to the server.
-- Have data available while new data is being fetched.
-- Easy to use the same API query multiple times, without multiple fetches.
+<a id='server-cache-state'></a>
 
-There are also a couple of downsides:
-- Need to think about invalidating cache.
-- Resolve conflicts between existing and incoming data in the cache.
+- __Server (cache) state__: When fetching data from an external API we can store that data in a client side cache:
+  - Pros:
+    - Reduce amount of API calls to the server.
+    - Have data available while new data is being fetched.
+    - Easy to use the same API query multiple times, without multiple fetches.
+  - Cons:
+    - Need to think about invalidating cache.
+    - Resolve conflicts between existing and incoming data in the cache.
 
-### Route state
-State that is stored in the route. For web that means it can be found in the address bar of the browser. Within React Native it means route params for each screen (stack/tab).
+<a id='route-state'></a>
+
+- __Route state__: State that is stored in the route. For web that means it can be found in the address bar of the browser. Within React Native it means route params for each screen (stack/tab). Elements you will usually see in a route state:
+  - Path
+  - Query params
+  - Hash
+
 
 
 ## From state to component
