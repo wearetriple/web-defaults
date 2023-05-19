@@ -17,7 +17,7 @@ Two keywords that are important in a data layer:
   - [Application state](#application-state)
   - [Server Cache state](#server-cache-state)
   - [Route state](#route-state)
-- [From state to component](#data-flow-from-store-to-component)
+- [From state to component](#from-state-to-component)
   - [Connecting or displaying data](#connecting-or-displaying-data)
   - [State management](#state-management)
   - [Transform/formatting data](#transform-formatting-data)
