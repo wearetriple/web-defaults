@@ -35,7 +35,7 @@ In state management terms, a store is an object that holds the state of an appli
 In a typical state management system, the store is responsible for maintaining the application state, which consists of all the data and values that your application needs to function. This includes things like user data, application settings, and other important data.
 
 ## What is a state?
-Within an application, wether it be build with React (Native) or Svelte, there are different types of state. So there is not a single centralized store where all your data lives:
+Within an application, wether it be build with React (Native) or Svelte, there are different types of state. So there is not a single centralized state where all your data lives:
 <a id='component-state'></a>
 
 - __Component state__: A component is a self-contained, reusable piece of code that can be used to create a UI element, such as a button, form, or menu. The state of a component represents the values that are specific to that component, which can change over time and affect how the component is rendered.
