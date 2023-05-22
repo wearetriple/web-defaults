@@ -189,7 +189,7 @@ const TodoLayout = () => {
   // Server state -> Seems route state, but the return of loader data is from the server (cache) state.
   const todo = useRouteLoaderData("TodoItem");
   // Server state -> Get rights and roles from server or cache.
-  const { data: rightsAndRoles } = useQuery(QueryRightAndRoles);
+  const { data: rightsAndRoles } = useQuery(QueryRightsAndRoles);
 
   return (
     // Structures components in a layout
