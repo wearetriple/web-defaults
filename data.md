@@ -73,9 +73,9 @@ Within an application, wether it be build with React (Native) or Svelte, there a
 
 ## From state to component
 Looking at how applications work you can state that a user always start with a route state:
-- A user navigates to page;
-- A user reloads a page;
-- A user comes from an external source (like a deeplink);
+- A user navigates to page.
+- A user reloads a page.
+- A user comes from an external source (like a deeplink).
 
 Consider this flow for your application where it starts from a route and ends in component(s):
 
