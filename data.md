@@ -11,7 +11,7 @@ Two keywords that are important in a data layer:
 - __State__: A snapshot of the store in a point of time representing the current state of the store.
 
 ## Index
-- [What is a store?](#what-is-a-store)
+- [What is a global store?](#what-is-a-global-store)
 - [What is a state?](#what-is-a-state)
   - [Component state](#component-state)
   - [Application state](#application-state)
@@ -29,8 +29,8 @@ Two keywords that are important in a data layer:
 - [🗄️ Project structure](project-structure.md)
 - [🧱 Components](components.md)
 
-## What is a store?
-In state management terms, a store is an object that holds the state of an application. It is a centralized place where you can store, update, and retrieve data that is used throughout your application.
+## What is a global store?
+In state management terms, a (global) store is an object that holds the state of an application. It is a centralized place where you can store, update, and retrieve data that is used throughout your application.
 
 In a typical state management system, the store is responsible for maintaining the application state, which consists of all the data and values that your application needs to function. This includes things like user data, application settings, and other important data.
 
@@ -153,10 +153,14 @@ To make it easier refer to this overview to see the scope for each element:
 
 ### Examples
 
-<details>
+<details open>
 <summary>React with React Router DOM v6</summary>
 
-First start with the entry point of your app: the Route State. Use the loader to fetch the server state and connect it to the route:
+First start with the entry point of your app: the Route State:
+- It has an initial fetch in the loader.
+- It fetches todos based on slug of the current page.
+- It connects the server state to the route state.
+- It connects a layout to the route.
 ```ts
 // Element: Loader
 export function todosLoader({ params }: TodosRoute) {
@@ -183,6 +187,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(el).render(<RouterProvider router={router} />);
 ```
 Within the layout the components are structured into a page/screen:
+- It uses the server state from the route.
+- It imports `TodoHeader` as dumb component and passes it the page header image.
+- It fetches `rightsAndRoles` from the server (cache) state to show/hide creation option in the screen.
+- It imports `TodoListConnector` for displaying the list of Todo's.
 ```tsx
 // Element: Layout
 const TodosLayout = () => {
@@ -209,7 +217,12 @@ const TodosLayout = () => {
   );
 };
 ```
-The connector is setup to connect extra data to your TodoItem component and format the timestamp in a readable format:
+The connector is setup to load a list of TodoItem components:
+- It loads the todos from the server state (the route loader).
+- It connects extra data relevant for this list of component: the Todo Assignee.
+- It handles the toggle action.
+- It selects the `showTodoTimeStamp` setting from the application state.
+- It formats the timestamp to a readable date string.
 ```tsx
 // Element: Connector
 const TodoListConnector = () => {
@@ -251,7 +264,10 @@ const TodoListConnector = () => {
   );
 };
 ```
-Finally a TodoItem component is created for simply displaying the data it gets from its props:
+Finally a TodoItem component is created:
+- It displays props that are passed to the component.
+- It imports another 'dumb' component to display the Avatar of the assignee.
+- It propagates the `onToggle` event.
 ```tsx
 // Element: Component
 const TodoItem = ({
