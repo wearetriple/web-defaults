@@ -28,7 +28,7 @@ Smart implementations of data fetching can improve your applications performance
 
 - Avoid fetching the same data multiple times. Store data that is used on every page rather than fetching the samen data every page render.
 - Fetch extra data separate from the initial page load. The page is already shown to the user, giving the user a faster experience. Extra data that is fetched can be indicated by showing loading indicators
-- Stale while revalidating. @TODO: https://jira.wearetriple.com/browse/TRIWTR-22
+- Stale while revalidating. Cache data that is already fetched. On a next pageload serve the cached data and refetch the data in the background.
 - When fetching large amounts of data, try to implement pagination to limit the data that is processed at once.
 
 ## Animations
