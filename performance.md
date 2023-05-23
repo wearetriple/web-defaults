@@ -50,3 +50,4 @@ Smart implementations of data fetching can improve your applications performance
 - https://www.syncfusion.com/blogs/post/lazy-loading-with-react-an-overview.aspx
 - https://react.dev/reference/react/useMemo
 - https://react.dev/learn/react-developer-tools
+- https://medium.com/outsystems-experts/how-to-achieve-60-fps-animations-with-css3-db7b98610108
