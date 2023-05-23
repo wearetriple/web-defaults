@@ -26,14 +26,14 @@ Lazy loading is a design pattern. It allows you to load parts of your applicatio
 
 Smart implementations of data fetching can improve your applications performance drastically. Some examples of data fetching implementations:
 
-- Avoid fetching the same data multiple times. Store data that is used on every page rather than fetching the samen data every page render.
+- Avoid fetching the same data multiple times. Store data that is used on every page rather than fetching the same data every page render.
 - Fetch extra data separate from the initial page load. The page is already shown to the user, giving the user a faster experience. Extra data that is fetched can be indicated by showing loading indicators
 - Stale while revalidating. Cache data that is already fetched. On a next pageload serve the cached data and refetch the data in the background.
 - When fetching large amounts of data, try to implement pagination to limit the data that is processed at once.
 
 ## Animations
 - Try to get the max frame rate when creating animations. 60fps should be the bottomline. Some screens have higher framerate, try to get the max out of it.
-- CSS > Javascript. When using animations it is adviced to use css animations over js animations. The performance for css animation is better in most cases.
+- CSS > Javascript. When using animations it is advised to use css animations over js animations. The performance for css animation is better in most cases.
 - Avoid `left`/`top`/`right`/`bottom` css transitions, use the `transform` property.
 
 ## React specific
