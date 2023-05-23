@@ -83,6 +83,4 @@ It adds visual weight, but in some cases, that is worth it. The same goes for th
 
 ### Onboarding
 
-Using the simplest solution for
-
- a project makes working on that project nice and improves productivity. However, even the simplest solutions can be quite complex. This can make onboarding new developers harder than if you're using an over-engineered, slower, more complex but standardized technology.
+Using the simplest solution for a project makes working on that project nice and improves productivity. However, even the simplest solutions can be quite complex. This can make onboarding new developers harder than if you're using an over-engineered, slower, more complex but standardized technology.
