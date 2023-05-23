@@ -33,7 +33,7 @@ Smart implementations of data fetching can improve your applications performance
 
 ## Animations
 - Try to get the max frame rate when creating animations. 60fps should be the bottomline. Some screens have higher framerate, try to get the max out of it.
-- CSS > Javascript. When using animations it is adviced to use css animations over js animations. The performance for css animation is better in most cases.
+- CSS > Javascript. When using animations it is advised to use css animations over js animations. The performance for css animation is better in most cases.
 
 ## React specific
 - useMemo. A React Hook that lets you cache the result of a <b>expensive</b> calculation between re-renders.
