@@ -12,7 +12,7 @@ src/
 │   └── TodoListItem/
 │       ├── TodoListItem.tsx
 │       └── TodoListItem.module.scss
-├── connectors/                           # The only component type where it's allowed to use apis and/or stores
+├── connectors/                           # The only component type where it's allowed to use APIs and/or stores
 │   ├── TodosFilters/
 │   │   ├── utils/
 │   │   │   └── useTodoFilters.ts
@@ -27,18 +27,18 @@ src/
 │   └── TodosLayout/
 │       ├── TodoLayout.module.scss
 │       └── TodoLayout.tsx
-├── routes/                               # Routing configuration with loader function to trigger initial api loads
+├── routes/                               # Routing configuration with a loader function to trigger initial API loads
 ├── api/                                  # API related code
 │   ├── dto.ts
 │   └── api.ts
-├── store/                                # global state stores (appStore/userStore/etc.)
+├── store/                                # Global state stores (appStore/userStore/etc.)
 ├── styles/
 │   ├── global.scss
 │   ├── utils.scss
 │   ├── variables
 │   ├── mixins
 │   └── typography
-├── utils/                                # shared utility functions
+├── utils/                                # Shared utility functions
 │   ├── date.ts
 │   ├── array.ts
 │   ├── object.ts
