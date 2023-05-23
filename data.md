@@ -159,10 +159,10 @@ To make it easier refer to this overview to see the scope for each element:
 First start with the entry point of your app: the Route State. Use the loader to fetch the server state and connect it to the route:
 ```ts
 // Element: Loader
-export function todoLoader({ params }: TodoRoute) {
+export function todosLoader({ params }: TodosRoute) {
   // Route state -> Connect route params to fetch from server state
   // Server state -> API service will fetch the server (cache) state
-  return api.get(`/api/todos/${params.id}`);
+  return api.get(`/api/todos/${params.slug}`);
 }
 ```
 Now setup your router to use the loader, the navigation path, and layout:
@@ -170,13 +170,13 @@ Now setup your router to use the loader, the navigation path, and layout:
 // State manager: Route
 const router = createBrowserRouter([
   {
-    path: "/todo/:id",
+    path: "/todos/:slug",
     // imported from loaders
-    loader: todoLoader,
+    loader: todosLoader,
     // using id to connect route state to hooks
-    id: 'TodoItem',
+    id: "TodosBySlug",
     // imported from layouts
-    element: <TodoLayout />,
+    element: <TodosLayout />,
   },
 ]);
 
@@ -185,9 +185,10 @@ ReactDOM.createRoot(el).render(<RouterProvider router={router} />);
 Within the layout the components are structured into a page/screen:
 ```tsx
 // Element: Layout
-const TodoLayout = () => {
-  // Server state -> Seems route state, but the return of loader data is from the server (cache) state.
-  const todo = useRouteLoaderData("TodoItem");
+const TodosLayout = () => {
+  // Server state -> Seems route state,
+  // but the return of loader data is from the server (cache) state.
+  const todosBySlug = useRouteLoaderData("TodosBySlug");
   // Server state -> Get rights and roles from server or cache.
   const { data: rightsAndRoles } = useQuery(QueryRightsAndRoles);
 
@@ -195,15 +196,15 @@ const TodoLayout = () => {
     // Structures components in a layout
     <section classname={$.container}>
       <div classname={$.flex}>
-        <TodoHeader image={todo.image.url} />
-        <TodoItemConnector />
+        <TodoHeader image={todosBySlug.header.image.url} />
+        <TodoListConnector />
       </div>
       {/* Hide/show todo creation based on rights of the current user */}
-      {rightsAndRoles.includes('todo-creation') &&
+      {rightsAndRoles.includes("todo-creation") && (
         <div classname={$.sticky}>
           <TodoCreate />
         </div>
-      }
+      )}
     </section>
   );
 };
@@ -211,44 +212,66 @@ const TodoLayout = () => {
 The connector is setup to connect extra data to your TodoItem component and format the timestamp in a readable format:
 ```tsx
 // Element: Connector
-const TodoItemConnector = ({ children }) => {
-  // Server state -> Seems route state, but the return of loader data is from the server (cache) state.
-  const todo = useRouteLoaderData("TodoItem");
+const TodoListConnector = () => {
+  // Server state -> Seems route state,
+  // but the return of loader data is from the server (cache) state.
+  const todosBySlug = useRouteLoaderData("TodosBySlug");
   // Server state -> Connect extra data to TodoItem
-  const { data: todoAssignee } = useQuery(QueryTodoAssignee, { variables: todo.id });
+  const { data: todoAssignees } = useQuery(QueryTodoAssignees, {
+    variables: {
+      slug: todosBySlug.slug,
+    },
+  });
   // Application state -> Connect app settings to TodoItem
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const showTodoTimeStamp = useSelector(
     (state) => state.appSettings.showTodoTimeStamp
   );
 
   // Handle action of TodoItem, update application state
-  const onToggle = () => {
-    dispatch(setTodoChecked(todo.id, !todo.checked));
+  const onToggle = (id: string, checked: boolean) => {
+    dispatch(setTodoChecked(id, !checked));
   };
 
   return (
-    <TodoItem
-      title={todo.title}
-      onToggle={onToggle}
-      checked={todo.checked}
-      assignedTo={todoAssignee.fullName}
-      assignedProfilePic={todoAssignee.image}
-      // Here we transform data if needed. In this case we want to format time to readable format.
-      time={showTodoTimeStamp ? formatTime(todo.time) : null}
-    />
+    <>
+      {todosBySlug.todos.map((todo) => (
+        <TodoItem
+          title={todo.title}
+          onToggle={() => onToggle(todo.id, todo.checked)}
+          checked={todo.checked}
+          assignedTo={todoAssignees[todo.id].fullName}
+          assignedProfilePic={todoAssignees[todo.id].image}
+          // Here we transform data if needed.
+          // In this case we want to format time to readable format.
+          time={showTodoTimeStamp ? formatTime(todo.time) : null}
+        />
+      ))}
+    </>
   );
 };
 ```
 Finally a TodoItem component is created for simply displaying the data it gets from its props:
 ```tsx
 // Element: Component
-const TodoItem = ({ title, checked, onToggle, time, assignedTo, assignedProfilePic }) => {
+const TodoItem = ({
+  title,
+  checked,
+  onToggle,
+  time,
+  assignedTo,
+  assignedProfilePic,
+}) => {
   return (
     <section classname={$.container}>
       <h2 classname={$.heading}>{title}</h2>
       <Avatar name={assignedTo} image={assignedProfilePic} />
-      <input type="checkbox" checked={checked} onChange={onToggle} classname={$.checkbox} />
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onToggle}
+        classname={$.checkbox}
+      />
       {time && <p classname={$.time}>{time}</p>}
     </section>
   );
