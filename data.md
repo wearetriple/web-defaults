@@ -1,14 +1,14 @@
 # 📡 Data
-The application you are building will transform data to a user interface using a framework like React or Svelte. Meaning you will retrieve data from one or more sources like an API, state management library or query params. It forms a layer over your application where your code knows how to form that layer into a workable UI.
+The application you are building will transform data to a user interface using a framework like React or Svelte. Meaning, you will retrieve data from one or more sources like an API, state management library, or query params. It forms a layer over your application where your code knows how to form that layer into a workable UI.
 
 Examples where a layer of data can exist:
-- In a component also known as component state and accessed using hooks in React or a variable in Svelte.
-- On a server also known as server state and accessed using an API.
-- In route parameters also known as URL state and accessed using Location Browser API.
+- In a component, also known as component state and accessed using hooks in React or a variable in Svelte.
+- On a server, also known as server state and accessed using an API.
+- In route parameters, also known as URL state and accessed using the Location Browser API.
 
 Two keywords that are important in a data layer:
-- __Store__: Where data is stored, for example a Firebase Database, indexedDB, localStore, React Query, Apollo Client Cache, Redux Store, etc.
-- __State__: A snapshot of the store in a point of time representing the current state of the store.
+- __Store__: Where data is stored, for example, a Firebase Database, indexedDB, localStore, React Query, Apollo Client Cache, Redux Store, etc.
+- __State__: A snapshot of the store at a point in time representing the current state of the store.
 
 ## Index
 - [What is a global store?](#what-is-a-global-store)
@@ -35,14 +35,14 @@ In state management terms, a (global) store is an object that holds the state of
 In a typical state management system, the store is responsible for maintaining the application state, which consists of all the data and values that your application needs to function. This includes things like user data, application settings, and other important data.
 
 ## What is a state?
-Within an application, wether it be build with React (Native) or Svelte, there are different types of state. So there is not a single centralized state where all your data lives:
+Within an application, whether it be built with React (Native) or Svelte, there are different types of state. So there is not a single centralized state where all your data lives:
 <a id='component-state'></a>
 
 - __Component state__: A component is a self-contained, reusable piece of code that can be used to create a UI element, such as a button, form, or menu. The state of a component represents the values that are specific to that component, which can change over time and affect how the component is rendered.
 
 <a id='application-state'></a>
 
-- __Application state__: If you want to keep state on a more global level that doesn't live server side you want to consider Application state. State that can represent stuff like:
+- __Application state__: If you want to keep state on a more global level that doesn't live server-side, you want to consider Application state. State that can represent stuff like:
   - Theming
   - Settings
   - Notifications
