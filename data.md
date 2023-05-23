@@ -53,31 +53,29 @@ Within an application, whether it be built with React (Native) or Svelte, there 
 
 <a id='server-cache-state'></a>
 
-- __Server (cache) state__: When fetching data from an external API we can store that data in a client side cache:
+- __Server (cache) state__: When fetching data from an external API, we can store that data in a client-side cache:
   - Pros:
-    - Reduce amount of API calls to the server.
-    - Have data available while new data is being fetched.
-    - Easy to use the same API query multiple times, without multiple fetches.
+    - Reduces the number of API calls to the server.
+    - Allows data to be available while new data is being fetched.
+    - Enables easy reuse of the same API query multiple times without multiple fetches.
   - Cons:
-    - Need to think about invalidating cache.
-    - Resolve conflicts between existing and incoming data in the cache.
+    - Need to consider cache invalidation.
+    - Need to resolve conflicts between existing and incoming data in the cache.
 
 <a id='route-state'></a>
 
-- __Route state__: State that is stored in the route. For web that means it can be found in the address bar of the browser. Within React Native it means route params for each screen (stack/tab). Elements you will usually see in a route state:
+- __Route state__: State that is stored in the route. For web applications, it can be found in the address bar of the browser. Within React Native, it refers to route parameters for each screen (stack/tab). Elements you will usually find in a route state include:
   - Path
-  - Query params
+  - Query parameters
   - Hash
 
-
-
 ## From state to component
-Looking at how applications work you can state that a user always start with a route state:
-- A user navigates to page.
-- A user reloads a page.
-- A user comes from an external source (like a deeplink).
+When examining how applications work, it can be stated that a user always starts with a route state:
+- The user navigates to a page.
+- The user reloads a page.
+- The user comes from an external source (like a deep link).
 
-Consider this flow for your application where it starts from a route and ends in component(s):
+Consider this flow for your application, starting from a route and ending in component(s):
 
 ```mermaid
 flowchart TD
@@ -120,12 +118,12 @@ flowchart TD
 
 | Element      | Description                                                                                                                                          |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Loader    | Based on the route and its params it can load data. Looking at Next.js, Svelte or React Router v6 they expose a loader function based on each route. |
-| Layout    | Structures components and connectors to display a page/screen to the user. Always included through a route.                                          |
-| Connector | Connects data from server or application state to components and optionally transforms/formats it. Also the propagated actions from components are handled by the connector. It keeps components 'dumb' and functional. Read more: [When to use a connector](#when-to-use-a-connector).                      |
-| Component | A 'dumb' component only responsible for displaying data and propagating actions to its connector or layout. Read more: [What is dumb component?](components.md#what-is-dumb-component)                                          |
+| Loader    | Based on the route and its params, it can load data. When looking at Next.js, Svelte, or React Router v6, they expose a loader function based on each route. |
+| Layout    | Structures components and connectors to display a page/screen to the user. It is always included through a route.                                          |
+| Connector | Connects data from the server or application state to components and optionally transforms/formats it. It also handles the propagated actions from components. It keeps components 'dumb' and functional. Read more: [When to use a connector](#when-to-use-a-connector).                      |
+| Component | A 'dumb' component only responsible for displaying data and propagating actions to its connector or layout. Read more: [What is a dumb component?](components.md#what-is-dumb-component)                                          |
 
-To make it easier refer to this overview to see the scope for each element:
+To make it easier, refer to this overview to see the scope for each element:
 
 |           | Route State | Server State | Application State | Component State | Transformer |
 |-----------|-------------|--------------|-------------------|-----------------|-------------|
@@ -139,7 +137,7 @@ To make it easier refer to this overview to see the scope for each element:
 
 | Element              | Description                                                                           |
 |-------------------|---------------------------------------------------------------------------------------|
-| Route State       | Handled by your solution of choice: Next.js, Svelte or React Router.                  |
+| Route State       | Handled by your solution of choice: Next.js, Svelte, or React Router.                  |
 | Server State      | Handled by your solution of choice: Vanilla fetch, React Query, Apollo, etc.          |
 | Application State | Handled by your solution of choice: React Context, Svelte stores, Redux Toolkit, etc. |
 
@@ -148,7 +146,7 @@ To make it easier refer to this overview to see the scope for each element:
 
 | Element    | Description                                                                                                                                                           |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Transformer | Util function for transforming/formatting data to display prices, dates. Or transforming arrays to flatten them or calculating a totalPrice for multiple order lines. Read more: [When to use a transformer](#when-to-use-a-transformer). |
+| Transformer | A utility function for transforming/formatting data to display prices, dates, or transforming arrays to flatten them or calculate a totalPrice for multiple order lines. Read more: [When to use a transformer](#when-to-use-a-transformer). |
 
 
 ### Examples
@@ -156,9 +154,9 @@ To make it easier refer to this overview to see the scope for each element:
 <details open>
 <summary>React with React Router DOM v6</summary>
 
-First start with the entry point of your app: the Route State:
+First, start with the entry point of your app: the Route State:
 - It has an initial fetch in the loader.
-- It fetches todos based on slug of the current page.
+- It fetches todos based on the slug of the current page.
 - It connects the server state to the route state.
 - It connects a layout to the route.
 ```ts
@@ -169,7 +167,7 @@ export function todosLoader({ params }: TodosRoute) {
   return api.get(`/api/todos/${params.slug}`);
 }
 ```
-Now setup your router to use the loader, the navigation path, and layout:
+Now set up your router to use the loader, the navigation path, and layout:
 ```tsx
 // State manager: Route
 const router = createBrowserRouter([
@@ -186,15 +184,15 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(el).render(<RouterProvider router={router} />);
 ```
-Within the layout the components are structured into a page/screen:
+Within the layout, the components are structured into a page/screen:
 - It uses the server state from the route.
-- It imports `TodoHeader` as dumb component and passes it the page header image.
-- It fetches `rightsAndRoles` from the server (cache) state to show/hide creation option in the screen.
-- It imports `TodoListConnector` for displaying the list of Todo's.
+- It imports `TodoHeader` as a dumb component and passes it the page header image.
+- It fetches `rightsAndRoles` from the server (cache) state to show/hide the creation option on the screen.
+- It imports `TodoListConnector` to display the list of Todos.
 ```tsx
 // Element: Layout
 const TodosLayout = () => {
-  // Server state -> Seems route state,
+  // Server state -> Similar to route state,
   // but the return of loader data is from the server (cache) state.
   const todosBySlug = useRouteLoaderData("TodosBySlug");
   // Server state -> Get rights and roles from server or cache.
@@ -202,14 +200,14 @@ const TodosLayout = () => {
 
   return (
     // Structures components in a layout
-    <section classname={$.container}>
-      <div classname={$.flex}>
+    <section className={$.container}>
+      <div className={$.flex}>
         <TodoHeader image={todosBySlug.header.image.url} />
         <TodoListConnector />
       </div>
       {/* Hide/show todo creation based on rights of the current user */}
       {rightsAndRoles.includes("todo-creation") && (
-        <div classname={$.sticky}>
+        <div className={$.sticky}>
           <TodoCreate />
         </div>
       )}
@@ -217,16 +215,16 @@ const TodosLayout = () => {
   );
 };
 ```
-The connector is setup to load a list of TodoItem components:
+The connector is set up to load a list of TodoItem components:
 - It loads the todos from the server state (the route loader).
-- It connects extra data relevant for this list of component: the Todo Assignee.
+- It connects extra data relevant to this list of components: the Todo Assignee.
 - It handles the toggle action.
 - It selects the `showTodoTimeStamp` setting from the application state.
 - It formats the timestamp to a readable date string.
 ```tsx
 // Element: Connector
 const TodoListConnector = () => {
-  // Server state -> Seems route state,
+  // Server state -> Similar to route state,
   // but the return of loader data is from the server (cache) state.
   const todosBySlug = useRouteLoaderData("TodosBySlug");
   // Server state -> Connect extra data to TodoItem
@@ -256,7 +254,7 @@ const TodoListConnector = () => {
           assignedTo={todoAssignees[todo.id].fullName}
           assignedProfilePic={todoAssignees[todo.id].image}
           // Here we transform data if needed.
-          // In this case we want to format time to readable format.
+          // In this case, we want to format time to a readable format.
           time={showTodoTimeStamp ? formatTime(todo.time) : null}
         />
       ))}
@@ -264,7 +262,7 @@ const TodoListConnector = () => {
   );
 };
 ```
-Finally a TodoItem component is created:
+Finally, a TodoItem component is created:
 - It displays props that are passed to the component.
 - It imports another 'dumb' component to display the Avatar of the assignee.
 - It propagates the `onToggle` event.
@@ -279,16 +277,16 @@ const TodoItem = ({
   assignedProfilePic,
 }) => {
   return (
-    <section classname={$.container}>
-      <h2 classname={$.heading}>{title}</h2>
+    <section className={$.container}>
+      <h2 className={$.heading}>{title}</h2>
       <Avatar name={assignedTo} image={assignedProfilePic} />
       <input
         type="checkbox"
         checked={checked}
         onChange={onToggle}
-        classname={$.checkbox}
+        className={$.checkbox}
       />
-      {time && <p classname={$.time}>{time}</p>}
+      {time && <p className={$.time}>{time}</p>}
     </section>
   );
 };
@@ -298,25 +296,27 @@ const TodoItem = ({
 > More examples can be added/suggested by developers.
 
 ### When to use a connector?
-It is not obligatory to use a connector in your application but it can be helpful for example:
-1. <b>Combining multiple states</b>: You need to combine server and application state into component props. For example you have a collection of books, but the selection state is only locally available.
+It is not obligatory to use a connector in your application, but it can be helpful in the following cases:
+1. **Combining multiple states**: You need to combine server and application state into component props. For example, you have a collection of books, but the selection state is only locally available.
 
-2. <b>Reusability</b>: You want to use a certain component with a piece of application state in multiple locations of your app. For example the totalprice of your shopping cart.
+2. **Reusability**: You want to use a certain component with a piece of application state in multiple locations of your app. For example, the total price of your shopping cart.
 
-3. <b>Direct coupling</b>: Have your data close to the component. Within React you will benefit from this: prevent unnecessary rerenders of components that do not use a specific slice of server/application state.
+3. **Direct coupling**: Have your data close to the component. Within React, you will benefit from this: prevent unnecessary rerenders of components that do not use a specific slice of server/application state.
 
 ### When to use a transformer?
-Transformers can be used to transform API data in your application if the data received from the API is in a raw or unstructured format, and needs to be processed and transformed into a format that can be easily consumed by your application, for example:
+Transformers can be used to transform API data in your application if the data received from the API is in a raw or unstructured format and needs to be processed and transformed into a format that can be easily consumed by your application. Examples include:
 
-1. <b>Data Cleaning</b>: If the data received from the API is in a messy or unstructured format.
+1. **Data Cleaning**: If the data received from the API is in a messy or unstructured format.
 
-2. <b>Data Normalization</b>: If the API data is in different formats, transformers can be used to normalize the data into a consistent format that can be easily processed by your application.
+2. **Data Normalization**: If the API data is in different formats, transformers can be used to normalize the data into a consistent format that can be easily processed by your application.
 
-3. <b>Data Augmentation</b>: If the API data is limited, transformers can be used to augment the data by generating new data based on the existing data.
+3. **Data Augmentation**: If the API data is limited, transformers can be used to augment the data by generating new data based on the existing data.
 
-4. <b>Data Integration</b>: If the API data needs to be combined with other data sources, transformers can be used to integrate the data by mapping it to a common schema or ontology.
+4. **Data Integration**: If the API data needs to be combined with other data sources, transformers can be used to integrate the data by mapping it to a common schema or ontology.
 
 Downsides to using transformers:
-1. <b>Impact on performance</b>: Need more computation power.
-2. <b>Extra complexity</b>: Data from the API is not the same as used in the application.
-3. <b>Taking responsibility</b>: The backend should deliver clean and structured data. Please discuss with backend first before adding transformers. Frontend is not supposed to take ownership in the backend data.
+1. **Impact on performance**: It may require more computation power.
+
+2. **Extra complexity**: Data from the API is not the same as used in the application.
+
+3. **Taking responsibility**: The backend should deliver clean and structured data. Please discuss with the backend first before adding transformers. The frontend is not supposed to take ownership of the backend data.
