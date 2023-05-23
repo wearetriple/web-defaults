@@ -2,24 +2,23 @@
 
     how to keep them dumb
 
-## What is dumb component?
+## What is a dumb component?
 
-It's purpose is to render the UI, it contain display logic and optionally emits events.
-A dumb component only needs it's props:
+Its purpose is to render the UI; it contains display logic and optionally emits events. A dumb component only needs its props:
 
-- It doesn't make any api calls
-- It doesn't mutate global state
-- It doesn't require any context
-- Generally the datatypes of the props are primitive/scalar types (strings, numbers, booleans)
+- It doesn't make any API calls.
+- It doesn't mutate global state.
+- It doesn't require any context.
+- Generally, the data types of the props are primitive/scalar types (strings, numbers, booleans).
 
-If a prop is an object, especially if that object is coming from an api call, that is a signal you're dealing with a smart component.
+If a prop is an object, especially if that object is coming from an API call, that is a signal you're dealing with a smart component.
 
 ## Why limit a component to be dumb?
 
 Making dumb components has many benefits:
 
-- Easy to reason about: As a developer you only need to think about this single component (and the nested dumb components)
-- Easy to test/preview: You can write a test that renders the component without having to configure any context or mock any api calls.
+- Easy to reason about: As a developer, you only need to think about this single component (and the nested dumb components).
+- Easy to test/preview: You can write a test that renders the component without having to configure any context or mock any API calls.
 
 ## How to keep a component dumb?
 
@@ -116,7 +115,7 @@ export let discountVisible: boolean;
 {/if}
 ```
 
-The business logic is now shared, you could argue that discountVisible is display logic and it is, but why pass a discount as a prop if it's not visible?
+The business logic is now shared, you could argue that discountVisible is display logic and it is, but why pass a discount as a prop if it is not visible?
 
 ```svelte
 <ProductRow discount={inventory.hasBought(product.id) ? undefined : product.discount} />
@@ -133,4 +132,4 @@ export let discount: number | undefined;
 
 ## Conclusion
 
-Dumb components, data in, events out. They are easier to write, read, test and maintain and are something to strife for. But don't feel bad for writing smart components, they do the work and are essential too.
+Dumb components, data in, events out. They are easier to write, read, test, and maintain and are something to strive for. But don't feel bad for writing smart components; they do the work and are essential too.
