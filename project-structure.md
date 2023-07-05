@@ -46,3 +46,39 @@ src/
 ├── App.tsx                               # Initial app component, always cluttered with initialization scripts
 └── index.ts
 ```
+
+In order to scale the application in the it's optional to keep most of the code inside the features folder, which should contain different feature-based things. Every feature folder should contain domain specific code for a given feature. This will allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. This is much easier to maintain than a flat folder structure with many files.
+
+```
+src/features/chatBot/
+├── assets
+├── images
+├── components/
+│   ├── PromptInput/
+│   │   ├── PromptInput.tsx
+│   │   └── PromptInput.module.scss
+│   ├── ChatHistory/
+│   │   ├── ChatHistory.tsx
+│   │   └── ChatHistory.module.scss
+│   └── PromptResonse/
+│       ├── PromptResonse.tsx
+│       └── PromptResonse.module.scss
+├── connectors/
+│   └── Chatbot/
+│       ├── ChatbotConnector.tsx
+│       └── ChatbotUtils.tsx
+├── hooks/
+│   └── useChatHistory.ts
+├── routes/
+│   ├── routes.tsx
+│   └── loaders/
+│       └── postsLoader.ts
+├── api/
+│   ├── api.ts
+│   └── apiDtos.ts
+├── store/
+│   └── user/
+│       ├── chatBotReducer.ts
+│       └── chatBotActions.ts
+└── utils
+```
