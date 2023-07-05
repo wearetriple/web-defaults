@@ -84,3 +84,10 @@ src/features/chatBot/
 │       └── chatBotActions.ts
 └── utils
 ```
+when do I create a separate api folder?
+- when the feature is the only part there the api is being used
+
+what should exist in the root folder structure?
+- shared components
+- shared api
+- shared store
