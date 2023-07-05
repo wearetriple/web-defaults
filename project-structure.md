@@ -47,6 +47,8 @@ src/
 └── index.ts
 ```
 
+### Example: Application scaling by folders per feature
+
 In order to scale the application in the it's optional to keep most of the code inside the features folder, which should contain different feature-based things. Every feature folder should contain domain specific code for a given feature. This will allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. This is much easier to maintain than a flat folder structure with many files.
 
 ```
