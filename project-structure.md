@@ -53,8 +53,8 @@ In order to scale the application in the it's optional to keep most of the code 
 
 ```
 src/features/chatBot/
-├── assets
-├── images
+├── assets/                               
+│   └── images/
 ├── components/
 │   ├── PromptInput/
 │   │   ├── PromptInput.tsx
@@ -62,19 +62,18 @@ src/features/chatBot/
 │   ├── ChatHistory/
 │   │   ├── ChatHistory.tsx
 │   │   └── ChatHistory.module.scss
-│   └── PromptResonse/
-│       ├── PromptResonse.tsx
-│       └── PromptResonse.module.scss
+│   └── PromptResponse/
+│       ├── PromptResponse.tsx
+│       └── PromptResponse.module.scss
 ├── connectors/
 │   └── Chatbot/
-│       ├── ChatbotConnector.tsx
-│       └── ChatbotUtils.tsx
+│       └── ChatbotConnector.tsx
 ├── hooks/
 │   └── useChatHistory.ts
 ├── routes/
 │   ├── routes.tsx
 │   └── loaders/
-│       └── postsLoader.ts
+│       └── chatBotLoader.ts
 ├── api/
 │   ├── api.ts
 │   └── apiDtos.ts
