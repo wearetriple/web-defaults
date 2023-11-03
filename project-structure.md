@@ -22,7 +22,7 @@ src/
 │       ├── TodosList.module.scss
 │       └── TodosList.tsx
 ├── hooks/                                # Hooks used across the entire application
-│   └── useUser.tsx
+│   └── use-user.ts
 ├── layouts/                              # Initial component used within a route to render the layout (React specific)
 │   └── TodosLayout/
 │       ├── TodoLayout.module.scss
@@ -42,18 +42,18 @@ src/
 │   ├── date.ts
 │   ├── array.ts
 │   ├── object.ts
-│   └── formatMoney.ts
+│   └── format-money.ts
 ├── App.tsx                               # Initial app component, always cluttered with initialization scripts
 └── index.ts
 ```
 
 ### Example: Application scaling by folders per feature
 
-In order to scale the application it's optional to keep most of the code inside the features folder. Every feature folder should contain domain specific code for a given feature. This will allow you to keep functionalities scoped to a feature and not mix its declarations with shared things. This is much easier to maintain than a flat folder structure with many files.
+If you want to make your application more scalable it's optional to create a feature-based folder structure. It will allow you to keep functionalities scoped to a feature and not mix its declarations with shared code. This can make it easier to maintain than a flat folder structure with many files.
 
 ```
-src/features/chatBot/
-├── assets/                               
+src/features/chat-bot/
+├── assets/
 │   └── images/
 ├── components/
 │   ├── PromptInput/
@@ -69,24 +69,24 @@ src/features/chatBot/
 │   └── Chatbot/
 │       └── ChatbotConnector.tsx
 ├── hooks/
-│   └── useChatHistory.ts
+│   └── use-chat-history.ts
 ├── routes/
 │   ├── routes.tsx
 │   └── loaders/
-│       └── chatBotLoader.ts
+│       └── chat-bot-loader.ts
 ├── api/
 │   ├── api.ts
-│   └── apiDtos.ts
+│   └── api-dtos.ts
 ├── store/
-│   └── user/
-│       ├── chatBotReducer.ts
-│       └── chatBotActions.ts
 └── utils
 ```
+
 when do I create a separate api folder?
+
 - when the feature is the only part there the api is being used
 
 what should exist in the root folder structure?
+
 - shared components
 - shared api
 - shared store
