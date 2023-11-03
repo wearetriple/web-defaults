@@ -70,10 +70,6 @@ src/features/chat-bot/
 │       └── ChatbotConnector.tsx
 ├── hooks/
 │   └── use-chat-history.ts
-├── routes/
-│   ├── routes.tsx
-│   └── loaders/
-│       └── chat-bot-loader.ts
 ├── api/
 │   ├── api.ts
 │   └── api-dtos.ts
