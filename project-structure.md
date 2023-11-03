@@ -22,7 +22,7 @@ src/
 │       ├── TodosList.module.scss
 │       └── TodosList.tsx
 ├── hooks/                                # Hooks used across the entire application
-│   └── useUser.tsx
+│   └── use-user.ts
 ├── layouts/                              # Initial component used within a route to render the layout (React specific)
 │   └── TodosLayout/
 │       ├── TodoLayout.module.scss
@@ -42,7 +42,47 @@ src/
 │   ├── date.ts
 │   ├── array.ts
 │   ├── object.ts
-│   └── formatMoney.ts
+│   └── format-money.ts
 ├── App.tsx                               # Initial app component, always cluttered with initialization scripts
 └── index.ts
 ```
+
+### Example: Application scaling by folders per feature
+
+If you want to make your application more scalable it's optional to create a feature-based folder structure. It will allow you to keep functionalities scoped to a feature and not mix its declarations with shared code. This can make it easier to maintain than a flat folder structure with many files.
+
+```
+src/features/chat-bot/
+├── assets/
+│   └── images/
+├── components/
+│   ├── PromptInput/
+│   │   ├── PromptInput.tsx
+│   │   └── PromptInput.module.scss
+│   ├── ChatHistory/
+│   │   ├── ChatHistory.tsx
+│   │   └── ChatHistory.module.scss
+│   └── PromptResponse/
+│       ├── PromptResponse.tsx
+│       └── PromptResponse.module.scss
+├── connectors/
+│   └── Chatbot/
+│       └── ChatbotConnector.tsx
+├── hooks/
+│   └── use-chat-history.ts
+├── api/
+│   ├── api.ts
+│   └── api-dtos.ts
+├── store/
+└── utils
+```
+
+when do I create a separate api folder?
+
+- when the feature is the only part there the api is being used
+
+what should exist in the root folder structure?
+
+- shared components
+- shared api
+- shared store
