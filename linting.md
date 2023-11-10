@@ -42,7 +42,13 @@ Linting CSS is possible with a library called Stylelint. By itself, it doesn't l
          "files": ["**/*.scss"],
          "customSyntax": "postcss-scss"
        }
-     ]
+     ],
+     "rules": {
+        "selector-pseudo-class-no-unknown": [
+          true,
+          { "ignorePseudoClasses": ["global"] }
+        ]
+      }
    }
    ```
 
@@ -52,7 +58,7 @@ Linting CSS is possible with a library called Stylelint. By itself, it doesn't l
 
    ```json
    {
-     "stylelint.validate": ["css", "scss"],
+     "stylelint.validate": ["css", "scss", "svelte"],
      "[css]": {
        "editor.defaultFormatter": "stylelint.vscode-stylelint"
      },
@@ -75,7 +81,7 @@ Linting CSS is possible with a library called Stylelint. By itself, it doesn't l
    ```json
    ...
    "scripts": {
-       "lint": "stylelint \"src/**/*.{css,scss}\"",
+       "lint": "stylelint \"src/**/*.{css,scss,svelte}\"",
        "format": "npm run lint -- --fix"
    }
    ...
