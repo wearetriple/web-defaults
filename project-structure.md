@@ -11,20 +11,19 @@ src/
 │   ├── Header/
 │   └── TodoListItem/
 │       ├── TodoListItem.tsx
-│       └── TodoListItem.module.scss
-├── connectors/                           # The only component type where it's allowed to use APIs and/or stores
-│   ├── TodosFilters/
+├── connectors/                           # The only component type where it's allowed to use apis and/or stores
+│   ├── TodoFilters/
 │   │   ├── utils/
 │   │   │   └── useTodoFilters.ts
-│   │   ├── TodosFilters.module.scss
-│   │   └── TodosFilters.tsx
-│   └── TodosList/
-│       ├── TodosList.module.scss
-│       └── TodosList.tsx
+│   │   ├── TodoFilters.module.scss
+│   │   └── TodoFilters.tsx
+│   └── TodoList/
+│       ├── TodoList.module.scss
+│       └── TodoList.tsx
 ├── hooks/                                # Hooks used across the entire application
 │   └── use-user.ts
 ├── layouts/                              # Initial component used within a route to render the layout (React specific)
-│   └── TodosLayout/
+│   └── TodoLayout/
 │       ├── TodoLayout.module.scss
 │       └── TodoLayout.tsx
 ├── routes/                               # Routing configuration with a loader function to trigger initial API loads
