@@ -28,9 +28,12 @@ src/
 │       ├── TodoLayout.module.scss
 │       └── TodoLayout.tsx
 ├── routes/                               # Routing configuration with a loader function to trigger initial API loads
-├── api/                                  # API related code
-│   ├── dto.ts
-│   └── api.ts
+├── services/
+│   ├── localstorage/                     # Localstorage related code
+│   │   └── localstorage.ts
+│   └── api/                              # API related code
+│       ├── dto.ts
+│       └── api.ts
 ├── store/                                # Global state stores (appStore/userStore/etc.)
 ├── styles/
 │   ├── global.scss
