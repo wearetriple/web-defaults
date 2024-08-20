@@ -19,7 +19,10 @@
 
 ### (S)CSS
 
-**Use Stylelint**
+**General**
+
+- Use Stylelint
+- Use comments when very specific selectors are needed
 
 **No nesting preferred**
 
