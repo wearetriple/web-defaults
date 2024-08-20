@@ -19,9 +19,95 @@
 
 ### (S)CSS
 
-- No nesting preferred
-- Selectors using **kebab-case**
-- Use Stylelint
+**Use Stylelint**
+
+**No nesting preferred**
+
+- Don't:
+
+```
+.card {
+  .title {
+    .link {
+      // Properties
+    }
+  }
+}
+```
+
+- Do:
+
+```
+.card {
+  // Properties
+}
+.title {
+  // Properties
+}
+.link {
+  // Properties
+}
+```
+
+**Selectors using kebab-case**
+
+- Don't: `class="mostReadPost"`
+- Do: `class="most-read-post"`
+
+**Don't use an abbrevation in the classnames (as everyone can interpret it differently)**
+
+- Don't: `class="crsl"`
+- Do: `class="carousel"`
+
+**Avoid styling by id**
+
+- Don't: `id="button"`
+- Do: `class="button"`
+
+**Use meaningful names**
+
+- Don't: `class="section"`
+- Do: `class="article-list"`
+
+**Chain modifier classes**
+
+- Don't: `class="button button-red"`
+- Do: `class="button red"`
+
+**Prefix state classes with 'is'**
+
+- Don't: `class="button button-disable"`
+- Do: `class="button is-disabled"`
+
+**Keep it short but do sacrifice it for the sake of meaningful names**
+
+- Don't: `class="most-read-blog-post-list-item"`
+- Do: `class="most-read-post"`
+
+**Avoid the use of !important**
+
+- Don't: `color: var(--c-red) !important`
+- Do: `color: var(--c-red)`
+
+**Preferably style by classname**
+
+- Don't:
+
+```
+li {
+  a {
+    // properties
+  }
+}
+```
+
+- Do:
+
+```
+.link {
+  // properties
+}
+```
 
 ### Best practices
 
