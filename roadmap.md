@@ -9,6 +9,7 @@
 - Transformation layer (API -> FE)
   - DTO -> Entity
   - Patterns
+  - Test
   - Helpers
   - Implementation/usage
 - Serialisation layer (FE -> API)
